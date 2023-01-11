@@ -565,7 +565,9 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                     <div class="modal-body d-flex flex-column justify-content-center">
                         <div class="booking">
                             
-                            <form class="booking-form row" role="form" action="#" method="post">
+                            <form  class="booking-form row" role="form" action="email" method="post">
+                                
+                                {% csrf_token %}
                                 <div class="col-lg-6 col-12">
                                     <label for="name" class="form-label">Full Name</label>
 
@@ -580,8 +582,8 @@ https://www.tooplate.com/view/2129-crispy-kitchen
 
                                 <div class="col-lg-6 col-12">
                                     <label for="phone" class="form-label">Phone Number</label>
-
-                                    <input type="telephone" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="form-control" placeholder="123-456-7890">
+                                    <input type="telephone" name="phone" id="phone"  class="form-control" placeholder="123-456-7890">
+                                    <!--input type="telephone" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="form-control" placeholder="123-456-7890"-->
                                 </div>
 
                                 <!--div class="col-lg-6 col-12">
