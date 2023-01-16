@@ -35,19 +35,20 @@ https://www.tooplate.com/view/2129-crispy-kitchen
     
     <body>
         
-        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <nav class="navbar navbar-expand-lg bg-black  shadow-lg">
             <div class="container">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 
                 <a class="navbar-brand" href="index.html">
-                    Crispy Kitchen
+                  
                 </a>
-
+                <img src="{% static 'images/logo.jpg' %}" > 
                 <div class="d-lg-none">
                     <button type="button" class="custom-btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#BookingModal">Contact Us</button>
                 </div>
+                 
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
@@ -204,31 +205,47 @@ https://www.tooplate.com/view/2129-crispy-kitchen
 
                 <div class="overlay"></div>
             </section>
-
-            <section class="menu section-padding">
+            
+            <div class="menu section-padding">   
                 <div class="container">
                     <div class="row">
-
+                        <style>
+                            .btn {
+                              background-color: rgb(70, 161, 83);
+                              border: none;
+                              color: white;                             
+                              padding: 12px 16px;
+                              font-size: 20px;
+                              cursor: pointer;
+                            }
+                            .button1{
+                                border: none;
+                            }                        
+                            /* Darker background on mouse-over */
+                            .btn:hover {
+                              background-color: rgb(189, 26, 26);
+                            }
+                            h4 {text-align: center;}
+                            </style>
                         <div class="col-12">
-                            <h2 class="text-center mb-lg-5 mb-4">Special Menus</h2>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="menu-thumb">
+                            <h2 class="text-center mb-lg-5 mb-4">Themes</h2>
+                        </div>   
+                        {% for themes in lst %}                                               
+                        <div class="col-lg-4 col-md-6 col-12">                                                                                
+                            <div class="menu-thumb">                                
                                 <div class="menu-image-wrap">
                                     <img src="{% static 'images/breakfast/brett-jordan-8xt8-HIFqc8-unsplash.jpg' %}" class="img-fluid menu-image" alt="">
-
-                                    <span class="menu-tag bg-warning">Breakfast</span>
+                                    <span class="menu-tag bg-warning">% Offer</span>                                                    
                                 </div>
-
                                 <div class="menu-info d-flex flex-wrap align-items-center">
-                                    <h4 class="mb-0">Morning Fresh</h4>
-
-                                    <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>12.50</span>
-
+                                    <div>
+                                        <h4 class="mb-0">Blue_light </h4>
+                                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">                                    
+                                        <span class="price-tag bg-black shadow-lg ms-1"><small>$</small>5000</span>                                    
+                                        <button  type="test" class="button1" ><a href='https://wa.me/918123169144/?text=Hi there' target= "_blank" class="btn"><i class="fa fa-whatsapp"></i> Order here </a></button>                                    
+                                        </div>
                                     <div class="d-flex flex-wrap align-items-center w-100 mt-2">
                                         <h6 class="reviews-text mb-0 me-3">4.3/5</h6>
-
                                         <div class="reviews-stars">
                                             <i class="bi-star-fill reviews-icon"></i>
                                             <i class="bi-star-fill reviews-icon"></i>
@@ -236,170 +253,16 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                                             <i class="bi-star-fill reviews-icon"></i>
                                             <i class="bi-star reviews-icon"></i>
                                         </div>
-
                                         <p class="reviews-text mb-0 ms-4">102 Reviews</p>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="menu-thumb">
-                                <div class="menu-image-wrap">
-                                    <img src="{% static 'images/lunch/farhad-ibrahimzade-MGKqxm6u2bc-unsplash.jpg' %}" class="img-fluid menu-image" alt="">
-
-                                    <span class="menu-tag bg-warning">Lunch</span>
-                                </div>
-
-                                <div class="menu-info d-flex flex-wrap align-items-center">
-                                    <h4 class="mb-0">Tooplate Soup</h4>
-
-                                    <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>24.50</span>
-
-                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
-                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>
-
-                                        <div class="reviews-stars">
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                        </div>
-
-                                        <p class="reviews-text mb-0 ms-4">50 Reviews</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="menu-thumb">
-                                <div class="menu-image-wrap">
-                                    <img src="{% static 'images/dinner/keriliwi-c3mFafsFz2w-unsplash.jpg' %}" class="img-fluid menu-image" alt="">
-
-                                    <span class="menu-tag bg-warning">Dinner</span>
-                                </div>
-
-                                <div class="menu-info d-flex flex-wrap align-items-center">
-                                    <h4 class="mb-0">Premium Steak</h4>
-
-                                    <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>45</span>
-
-                                    <del class="ms-4"><small>$</small>150</del>
-
-                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
-                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>
-
-                                        <div class="reviews-stars">
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                        </div>
-
-                                        <p class="reviews-text mb-0 ms-4">86 Reviews</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="menu-thumb">
-                                <div class="menu-image-wrap">
-                                    <img src="{% static 'images/dinner/farhad-ibrahimzade-ZipYER3NLhY-unsplash.jpg' %}" class="img-fluid menu-image" alt="">
-
-                                    <span class="menu-tag bg-warning">Dinner</span>
-                                </div>
-
-                                <div class="menu-info d-flex flex-wrap align-items-center">
-                                    <h4 class="mb-0">Seafood Set</h4>
-
-                                    <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>86</span>
-
-                                    <del class="ms-4"><small>$</small>124</del>
-
-                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
-                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>
-
-                                        <div class="reviews-stars">
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                        </div>
-
-                                        <p class="reviews-text mb-0 ms-4">44 Reviews</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="menu-thumb">
-                                <div class="menu-image-wrap">
-                                    <img src="{% static 'images/breakfast/louis-hansel-dphM2U1xq0U-unsplash.jpg' %}" class="img-fluid menu-image" alt="">
-
-                                    <span class="menu-tag bg-warning">Breakfast</span>
-                                </div>
-
-                                <div class="menu-info d-flex flex-wrap align-items-center">
-                                    <h4 class="mb-0">Burger Set</h4>
-
-                                    <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>20.50</span>
-
-                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
-                                        <h6 class="reviews-text mb-0 me-3">4.3/5</h6>
-
-                                        <div class="reviews-stars">
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                        </div>
-
-                                        <p class="reviews-text mb-0 ms-4">102 Reviews</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="menu-thumb">
-                                <div class="menu-image-wrap">
-                                    <img src="{% static 'images/lunch/farhad-ibrahimzade-D5c9ZciQy_I-unsplash.jpg' %}" class="img-fluid menu-image" alt="">
-
-                                    <span class="menu-tag bg-warning">Lunch</span>
-                                </div>
-
-                                <div class="menu-info d-flex flex-wrap align-items-center">
-                                    <h4 class="mb-0">Healthy Soup</h4>
-
-                                    <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>34.20</span>
-
-                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
-                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>
-
-                                        <div class="reviews-stars">
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                        </div>
-
-                                        <p class="reviews-text mb-0 ms-4">64 Reviews</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                                </div>                                
+                            </div>                                                      
+                        </div>     
+                        {% endfor %}                     
                     </div>
                 </div>
-            </section>
+            </div>
+            
 
             <section class="BgImage"></section>
 
@@ -557,7 +420,7 @@ https://www.tooplate.com/view/2129-crispy-kitchen
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="mb-0">Reserve a table</h3>
+                        <h3 class="mb-0">Book Event</h3>
 
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
@@ -614,7 +477,7 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                                 </div>
 
                                 <div class="col-12">
-                                    <label for="message" class="form-label">Special Request</label>
+                                    <label for="message" class="form-label">Themes / Price</label>
 
                                     <textarea class="form-control" rows="4" id="message" name="message" placeholder=""></textarea>
                                 </div>
