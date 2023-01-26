@@ -1,17 +1,16 @@
 {% load static %}
-
+<!-- {% static "images\dinner" as baseUrl %} -->
 
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <meta name="description" content="">
         <meta name="author" content="">
 
         <title>Home Page</title>
-
+        <link rel="icon" type="image/x-icon" href="{% static 'images\logo.jpg' %}">
         <!-- CSS FILES -->    
         <link rel="preconnect" href="https://fonts.googleapis.com">
         
@@ -48,7 +47,6 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                 <div class="d-lg-none">
                     <button type="button" class="custom-btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#BookingModal">Contact Us</button>
                 </div>
-                 
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
@@ -65,35 +63,37 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="news.html">Our Updates</a>
+                            <a class="nav-link" href="news.html">Contact us</a>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                        <li>
+                       
+                        
                         </li>
                     </ul>
                 </div>
 
                 <div class="d-none d-lg-block">
-                    <button type="button" class="custom-btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#BookingModal">Contact Us</button>
+                    <button class="buttonuser">
+                    <i class="fa fa-user-circle-o" href="" ></i></button>
+                    <button type="button" class="custom-buttonuser buttonuser buttonuser-danger" data-bs-toggle="modal" data-bs-target="#BookingModal">Book Event</button>
                 </div>
 
             </div>
         </nav>
 
         <main>
-
+          
             <section class="hero">
                 <div class="container">
                     <div class="row">
-
+                        
                         <div class="col-lg-5 col-12 m-auto">
-                            <div class="heroText">
-
-                                <h1 class="text-white mb-lg-5 mb-3">Delicious Steaks</h1>
-
+                            <div class="heroText">                                
+                                <h1  class=" mb-lg-5 mb-3" style ="color: #ffffff">Mr.Air🎉 Balloonz</h1>
+                                
                                 <div class="c-reviews my-3 d-flex flex-wrap align-items-center">
                                     <div class="d-flex flex-wrap align-items-center">
+                                     
                                         <h4 class="text-white mb-0 me-3">4.4/5</h4>
 
                                         <div class="reviews-stars">
@@ -110,7 +110,7 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                             </div>
                         </div>
 
-                        <div class="col-lg-7 col-12">
+                        <!--div class="col-lg-7 col-12">
                             <div id="carouselExampleCaptions" class="carousel carousel-fade hero-carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
@@ -191,7 +191,7 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                                     <span class="visually-hidden">Next</span>
                                 </button>
                             </div>
-                        </div>
+                        </div-->
 
                     </div>
                 </div>
@@ -205,55 +205,107 @@ https://www.tooplate.com/view/2129-crispy-kitchen
 
                 <div class="overlay"></div>
             </section>
+
+            
             
             <div class="menu section-padding">   
                 <div class="container">
                     <div class="row">
+                        <div class="product-cart-thumb row">
+                            <form action="filteredTheme" method="post">
+                                <div class="col-lg-6 col-12"> 
+                                    {% csrf_token %}
+                                    <label style="color: rgb(6, 24, 24);font-weight: 600;" for="firstname" >Choose a Category:</label>
+                                    <select  action= 'home/category' class="form-select" style="width:auto;" name="category" id="cars">
+                                     <option name="category">All</option>
+                                     {% for theme in Allcategory %}
+                                      <option name="category">{{theme.Theme_category}}</option>
+                                      {% endfor %}
+                                    </select>
+                                    <br>
+                                    <button  type="submit" class="btn1 btn-primary btn-sm">Submit</button>
+                                    <!--input class = "button1" type="submit" value="Submit"-->
+                                </div>  
+                            </form>
+                        </div>
                         <style>
                             .btn {
+                              border-radius: 25px;
                               background-color: rgb(70, 161, 83);
                               border: none;
                               color: white;                             
-                              padding: 12px 16px;
+                              padding: 20px 16px;
                               font-size: 20px;
                               cursor: pointer;
                             }
+                            .btn1 {
+                                border-radius: 25px;
+                                background-color: rgb(4, 10, 5);
+                                border: none;
+                                width: 100px;
+                                color: rgb(241, 197, 50);                             
+                                padding: 16px 16px;
+                                font-size: auto;
+                                cursor: pointer;
+                                border : none;
+                                }
                             .button1{
                                 border: none;
                             }                        
                             /* Darker background on mouse-over */
                             .btn:hover {
-                              background-color: rgb(189, 26, 26);
+                              background-color: rgb(233, 49, 49);
                             }
-                            h4 {text-align: center;}
+                            
+                            h4 {text-align: center;}  
+                            h6 {text-align: left;}
+                            .buttonuser{
+                                border-radius: 8px;
+                                background-color: rgb(16, 12, 230);
+                                border: none;
+                                color: white;                             
+                                padding: 14px 16px;
+                                font-size: 22px;
+                                cursor: pointer;
+                            }          
+                            .buttonuser:hover{
+                                background-color: rgb(233, 49, 49);
+                            }          
                             </style>
                         <div class="col-12">
                             <h2 class="text-center mb-lg-5 mb-4">Themes</h2>
                         </div>   
-                        {% for themes in lst %}                                               
+                        {% for theme in themes %}                                               
                         <div class="col-lg-4 col-md-6 col-12">                                                                                
                             <div class="menu-thumb">                                
                                 <div class="menu-image-wrap">
-                                    <img src="{% static 'images/breakfast/brett-jordan-8xt8-HIFqc8-unsplash.jpg' %}" class="img-fluid menu-image" alt="">
-                                    <span class="menu-tag bg-warning">% Offer</span>                                                    
+                                    <!--a href="theme_details"  target="_blank" -->
+                                    <a href="/home/{{theme.Theme_url}}"   >
+                                    <img src="{{theme.Theme_image.url}}"  width="350" height="350" alt="">
+                                    </a><!--class="img-fluid menu-image"-->
+                                    <span class="menu-tag bg-warning">{{theme.Theme_discount}} %Offer</span>                                                    
                                 </div>
                                 <div class="menu-info d-flex flex-wrap align-items-center">
                                     <div>
-                                        <h4 class="mb-0">Blue_light </h4>
+                                        <h4 class="mb-0">{{theme.Theme_name}}</h4>
+                                        <!--h6  style="color: rgb(77, 82, 82)" class="mb-0"><small>{{theme.Theme_discription}}</small></h6-->
                                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">                                    
-                                        <span class="price-tag bg-black shadow-lg ms-1"><small>$</small>5000</span>                                    
-                                        <button  type="test" class="button1" ><a href='https://wa.me/918123169144/?text=Hi there' target= "_blank" class="btn"><i class="fa fa-whatsapp"></i> Order here </a></button>                                    
+                                        <!--span class="price-tag bg-black shadow-lg ms-1"><small>$</small>{{theme.Theme_price}}</span-->                                          
+                                        <button  class="btn1" type="test" class="button1" ><i class="fa fa-usd"></i><s>{{theme.Theme_price}}</s> {{theme.Theme_price}} </a></button>
+                                        <button  type="test" class="button1" ><a href="https://wa.me/918123169144/?text=Price: {{theme.Theme_price}}// test"   target= "_blank" class="btn"><i class="fa fa-whatsapp"></i> Order here </a></button>
+                                        
                                         </div>
+                                    
                                     <div class="d-flex flex-wrap align-items-center w-100 mt-2">
-                                        <h6 class="reviews-text mb-0 me-3">4.3/5</h6>
-                                        <div class="reviews-stars">
+                                        <h6 class="reviews-text mb-0 me-3"></h6>
+                                        <!--div class="reviews-stars" >
                                             <i class="bi-star-fill reviews-icon"></i>
                                             <i class="bi-star-fill reviews-icon"></i>
                                             <i class="bi-star-fill reviews-icon"></i>
                                             <i class="bi-star-fill reviews-icon"></i>
                                             <i class="bi-star reviews-icon"></i>
                                         </div>
-                                        <p class="reviews-text mb-0 ms-4">102 Reviews</p>
+                                        <p class="reviews-text mb-0 ms-4">💕</p -->
                                     </div>
                                 </div>                                
                             </div>                                                      
@@ -280,7 +332,7 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                                 
                                 <div class="news-text-info news-text-info-large">
                                     <span class="category-tag bg-danger">Featured</span>
-
+                                    
                                     <h5 class="news-title mt-2">
                                         <a href="news-detail.html" class="news-title-link">Healthy Lifestyle and happy living tips</a>
                                     </h5>
@@ -369,25 +421,25 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                 <div class="row">
 
                     <div class="col-12">
-                        <h4 class="text-white mb-4 me-5">Crispy Kitchen</h4>
+                        <h4 class="text-white mb-4 me-5">Mr,Air🎉 Event Management</h4>
                     </div>
 
                     <div class="col-lg-4 col-md-7 col-xs-12 tooplate-mt30">
                         <h6 class="text-white mb-lg-4 mb-3">Location</h6>
 
-                        <p>121 Einstein Loop N, Bronx, NY 10475, United States</p>
+                        <p>VHVF+2JX, Eswara Layout, Phase 7, J. P. Nagar, Bengaluru, Karnataka india</p>
 
-                        <a href="https://goo.gl/maps/wZVGLA7q64uC1s886" class="custom-btn btn btn-dark mt-2">Directions</a>
+                        <a href="https://goo.gl/maps/5JbMi9qZZ5YN9vX36" target = "_blank" class="custom-btn btn btn-dark mt-2">Directions</a>
                     </div>
 
                     <div class="col-lg-4 col-md-5 col-xs-12 tooplate-mt30">
                         <h6 class="text-white mb-lg-4 mb-3">Opening Hours</h6>
 
-                        <p class="mb-2">Monday - Friday</p>
+                        <p class="mb-2">Monday - sunday</p>
 
                         <p>10:00 AM - 08:00 PM</p>
 
-                        <p>Tel: <a href="tel: 010-02-0340" class="tel-link">010-02-0340</a></p>
+                        <p>Tel: <a href="tel:918123169144" class="tel-link">8123169144</a></p>
                     </div>
 
                     <div class="col-lg-4 col-md-6 col-xs-12 tooplate-mt30">
@@ -445,7 +497,7 @@ https://www.tooplate.com/view/2129-crispy-kitchen
 
                                 <div class="col-lg-6 col-12">
                                     <label for="phone" class="form-label">Phone Number</label>
-                                    <input type="telephone" name="phone" id="phone"  class="form-control" placeholder="123-456-7890">
+                                    <input type="telephone" name="phone" id="phone"  class="form-control" placeholder="+91**********">
                                     <!--input type="telephone" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="form-control" placeholder="123-456-7890"-->
                                 </div>
 

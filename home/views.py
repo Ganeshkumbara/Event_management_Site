@@ -2,22 +2,37 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.conf import settings
-from .models import Homepage
+from .models import Homepage_themes
+from django.views.generic import ListView
 
 def home(request):
-
-    themes1 = Homepage()
-    themes1.name = "Blue_light princess "
-    themes1.price =  5500
-
-    themes2 = Homepage()
-    themes2.name = "Blue_light princess "
-    themes2.price =  5500
+    Allcategory = Homepage_themes.objects.all()
+    themes =Homepage_themes.objects.order_by('id')
     
-    lst = [themes1,themes2]
-    return render(request, "index.html",{"lst":lst})
+    return render(request, "index.html",{"themes":themes, 'Allcategory':Allcategory})
 
 
+def theme_deatils(request, slug):
+    themes = Homepage_themes.objects.order_by('?')[:3]
+    theme = Homepage_themes.objects.get(Theme_url = slug)
+    return render(request,'test.html',{'theme':theme, 'themes':themes})
+
+# class Theme_details(ListView):
+#     model = Homepage_themes
+
+#     template_name = 'test2.html'
+#     queryset = Homepage_themes.objects.filter(id= 6)
+
+def filteredTHeme(request):
+    selectedTheme = request.POST['category']
+    if request.method == 'POST':
+        Allcategory = Homepage_themes.objects.all()
+        if selectedTheme != 'All':
+            themes = Homepage_themes.objects.filter(Theme_category=selectedTheme)
+            return render(request, 'index.html',{'themes':themes, 'Allcategory':Allcategory })
+        elif selectedTheme == 'All':
+            themes = Homepage_themes.objects.all()
+            return render(request, 'index.html',{'themes':themes, 'Allcategory':Allcategory })
 
 
 
@@ -25,16 +40,19 @@ def home(request):
 
 def email(request):
     '''custmer info'''
-    email = request.POST['email']
+    useremail = request.POST['email']
     username = request.POST['name']
-
+    time =  request.POST['time']
+    ph_number = request.POST['phone']
+    user_message = request.POST['message']
+    user_event_date = request.POST['date']
     if request.method == "POST":
-        subject = 'Django test mail'
-        message = (f'Hi {username}, thanks showing interset will get back to u shortly..\n stayed tunned ')
+        subject = 'Mr.Air Balloon Event Management'
+        message = (f'Hi {username}, thanks showing interset, will get back to u shortly..\n\n\nstayed tunned😊')
         email_from = settings.EMAIL_HOST_USER
-        recipient_list = [email]
+        recipient_list = [useremail]
         send_mail( subject, message, email_from, recipient_list )
-
-        return redirect('/')
-    return redirect('/')
+        send_mail(subject,f'''Custmer:{username} \nDate:{user_event_date}\nTime:{time}\nPh_nor:{ph_number}\nmessage:{user_message}''',email_from,['ganesh700511@gmail.com'])
+        return redirect('/home')
+    return redirect('/home')
      
