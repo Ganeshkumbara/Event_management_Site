@@ -130,35 +130,26 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                                 <div>
                                     <h2 class="product-title mb-0">{{theme.Theme_name}}</h2>
                                     <p class="product-p">Mr,Air Product</p>
+                           
+                                <div class="product-description">
+                                    <strong  style="line-height:15px" class="d-block mt-4 mb-2">Description</strong>
+                                    <p class="lead mb-5">{{theme.Theme_discription}}</p>
                                 </div>
-                            </div>
-
-                            <div class="product-description">
-
-                                <strong class="d-block mt-4 mb-2">Description</strong>
-
-                                <p class="lead mb-5">{{theme.Theme_discription}}</p>
-                            </div>
-
-                            <div class="product-cart-thumb row">
-                                <!--div class="col-lg-6 col-12">
-                                    
-                                    <select class="form-select cart-form-select" id="inputGroupSelect01">
-                                        <option selected>Quantity</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                </div-->
-
-                                <div class="menu-info d-flex flex-wrap align-items-center">
+                                <div  style="line-height:15px" class="menu-info d-flex flex-wrap align-items-center">
                                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">                                    
                                     <button  class="btn1" type="test" class="button1" ><i class="fa fa-usd"></i><s>{{theme.Theme_price}}</s> {{theme.Theme_price}} </a></button>
-                                    <button  type="test" class="button1" ><a href="https://wa.me/918123169144/?text=Price: {{theme.Theme_price}}// test"   target= "_blank" class="btn"><i class="fa fa-whatsapp"></i> Order here </a></button>
+                                    <button  type="test" class="button1" ><a href="https://wa.me/918123169144/?text=Name:{{theme.Theme_name}}%0D%0APrice:{{theme.Theme_price}}%0D%0Aurl%3A+{{request.build_absolute_uri}}"   target= "_blank" class="btn"><i class="fa fa-whatsapp"></i> Order here </a></button>
                                 </div>
-
+                                
+                                <div >
+                                    <strong style="color:red" class="d-block mt-4 mb-2">Note</strong><br>
+                                    <div  style="line-height:15px">
+                                        <p style="color: black;">* Helium Balloons lifetime for 6 to 7 hours & normal - 25 hr</p>
+                                        <p style="color: black;">* Incase of Booking cancellation as to informed before 1 day</p>
+                                        <p style="color: black;">* Kindely choose the delivery before 2 - 3 hr</p>
+                                    </div>
+                                </div>
+                                </div>
                                 <!--p>
                                     <a href="#" class="product-additional-link">Details</a>
 
@@ -180,26 +171,26 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                         {% for Theme in themes %}
                         <div class="col-lg-4 col-12 mb-3">
                             <div class="product-thumb">
-                                <a href="/home/{{Theme.Theme_url}}">
+                                <a href="/home/{{Theme.Theme_url}}/{{theme.Theme_category}}/{{theme.Theme_region}}">
                                     <img src="{{Theme.Theme_image.url}}" width="250" height="250" alt="">
                                 </a>
 
-                                <div class="product-top d-flex">
+                                <!--div class="product-top d-flex">
                                     <span class="product-alert me-auto">New arrival</span>
 
                                     <a href="#" class="bi-heart-fill product-icon"></a>
-                                </div>
+                                </div-->
 
                                 <div class="product-info d-flex">
                                     <div>
-                                        <h5 class="product-title mb-0">
-                                            <a href="product-detail.html" class="product-title-link">Tree pot</a>
+                                        <h5 >
+                                            <br>
+                                            {{Theme.Theme_name}}
+                                            <h6 >{{Theme.Theme_price}}</h6>
                                         </h5>
 
-                                        <p class="product-p">Original package design from house</p>
+                                        <h6><p style="color: rgb(10, 51, 187);" class="product-p">Similar to above Product</p></h6>
                                     </div>
-
-                                    <small class="product-price text-muted ms-auto mt-auto mb-5">$25</small>
                                 </div>
                             </div>
                         </div>

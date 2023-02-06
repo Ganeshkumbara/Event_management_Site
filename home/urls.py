@@ -7,10 +7,13 @@ urlpatterns =[
     path('', RedirectView.as_view(url='home')), 
     path('home', views.home, name='Home' ),
     path('email', views.email, name = 'email'),
-    # path('filteredTheme', views.Theme_details.as_view()),
-    path('home/<slug>', views.theme_deatils, name ='theme_detail'),
-    path('filteredTheme', views.filteredTHeme, name = 'filteredTheme'),
-    
+    path('Femail', views.femail, name = 'femail'),
+    path('home/<slug>/<category>/<region>', views.theme_deatils, name ='theme_detail'),
+    path('filtered', views.filtered , name='Home' ),
+    path('contactUs', views.contactUs , name='ContactUs' ),
 
+    # path('filteredTheme', views.Theme_details.as_view()),
+    # path('filteredTheme', views.filteredTHeme, name = 'filteredTheme'),
+    # path('regionalwiseThemes', views.regionalTheme, name = 'regionalwiseThemes'),
 ]
 
