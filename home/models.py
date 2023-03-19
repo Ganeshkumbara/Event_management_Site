@@ -19,6 +19,9 @@ class Homepage_themes(models.Model):
     ]
     Theme_category = models.CharField(verbose_name='Category', choices=category, max_length=255,)
     Theme_region = models.CharField(max_length=100,default='Home')
+    
+
+
 
 
 class FHHomepage_themes(models.Model):
@@ -82,6 +85,35 @@ class FCDHomepage_themes(models.Model):
     ]
     Theme_category = models.CharField(verbose_name='Category', choices=category, max_length=253,)
     Theme_region = models.CharField(max_length=100,default='Chennai')
+
+class Basemodel(models.Model):
+    Theme_name =  models.CharField(max_length=100)
+    Theme_price = models.IntegerField()
+    Theme_discount = models.IntegerField()
+    Theme_offer = models.BooleanField()
+    Theme_discription = models.TextField()
+    Theme_image = models.ImageField(upload_to='themePic')
+    Theme_url = models.SlugField(max_length=40)
+    category = [
+        ('Bday_Party','Bday_Party'),
+        ('Bachelorette','Bachelorette'),
+        ('Baby_Shower','Baby_Shower'),
+        ('Corporate_party','Corporate_party'),
+    ]
+    Theme_category = models.CharField(verbose_name='Category', choices=category, max_length=253,)
+    Theme_region = models.CharField(max_length=100,default='Chennai')
+
+    class Meta:
+        abstract = True
+
+class Test(Basemodel):
+    pass
+
+class Test2(Basemodel):
+    def __init__(self):
+        self.Theme_region = models.CharField(max_length=100,default='world')
+
+
 
 # basemodel = Homepage_themes.objects.all()
 # for modelz in basemodel:
